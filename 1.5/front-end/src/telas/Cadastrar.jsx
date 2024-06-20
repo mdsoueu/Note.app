@@ -1,7 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link, Outlet } from "react-router-dom";
-import './Style.css'; // Importando o arquivo de estilos CSS
 
 const Cadastrar = () => {
     const [listaUsuarios, setListaUsuarios] = useState([]);
@@ -105,38 +104,28 @@ const Cadastrar = () => {
     }
 
     return (
-        <div className="container mt-5">
+        <div className="containerCadastrar">
             {/* <h2>{modoEdicao ? "Editar Usuário" : "Cadastrar"}</h2> */}
-            <h2 className="text-center mb-4" style={{
-                fontFamily: 'fantasy',
-                color: 'grey'
-            }}>
-                Cadastrar Usuário
-            </h2>
+            <h2  style={{ padding: '0 25px', fontFamily: 'fantasy', color: 'red'}}> Cadastrar Usuário </h2>
 
             <form onSubmit={(e) => { e.preventDefault(); adicionaUsuario(); }} className="mb-4">
-                <div className="mb-3">
-                    <label className='teste'>Primeiro nome:</label>
-                    <input type="text" ref={primeiroNomeInputRef} name="primeiroNome" />
-                </div>
-                <div className="mb-3">
-                    <label className='teste'>Último nome:</label>
-                    <input type="text" ref={ultimoNomeInputRef} name="ultimoNome" />
-                </div>
-                <div className="mb-3">
-                    <label className='teste'>Idade:</label>
-                    <input type="number" ref={idadeInputRef} name="idade" />
-                </div>
-                <div className="mb-3">
-                    <label className='teste'>Email:</label>
-                    <input type="email" ref={emailInputRef} name="email" />
-                </div>
-                <div className="mb-3">
-                    <label className='teste'>Senha:</label>
-                    <input type="password" ref={senhaInputRef} name="senha" />
-                </div>
+                    <label className="form-label" >Primeiro nome:</label>
+                    <input type="text" ref={primeiroNomeInputRef} name="primeiroNome" className="form-control"/>
 
-                <div className="d-flex justify-content-between">
+                    <label className="form-label" >Último nome:</label>
+                    <input type="text" ref={ultimoNomeInputRef} name="ultimoNome" className="form-control"/>
+
+                    <label className="form-label" >Idade:</label>
+                    <input type="text" ref={idadeInputRef} name="idade" className="form-control"/>
+
+                    <label className="form-label" >Email:</label>
+                    <input type="email" ref={emailInputRef} name="email" className="form-control"/>
+
+                    <label className="form-label" >Senha:</label>
+                    <input type="password" ref={senhaInputRef} name="senha" className="form-control"/>
+                <br />
+
+                <div className="d-flex justify-content-center mb-2" style={{gap:'10px'}}>
                     <button type="submit"  className="btn btn-primary">Cadastrar</button>
                     <button type="button" className="btn btn-primary" onClick={limparCampos}>Cancelar</button>
                 </div>
@@ -157,14 +146,80 @@ const Cadastrar = () => {
                 ))}
             </div> */}
 
-            <div className="d-flex justify-content-end mt-4">
-
-                <Link to={'/login'}> <div>Login</div> </Link>
-                <Link to={'/'}>Voltar</Link>
+            <div className="d-flex justify-content-end mt-2">
+            <Link to={'/login'} className="mx-2">
+                    <input type="button" value="login" className="btn btn-secondary" />
+                </Link>
+                <Link to={'/'} className="mx-2">
+                    <input type="button" value="voltar" className="btn btn-danger" />
+                </Link>
                 <Outlet />
             </div>
         </div>
     );
 };
+
+    // return (
+        // <div className="container mt-5">
+            {/* <h2>{modoEdicao ? "Editar Usuário" : "Cadastrar"}</h2> */}
+            // <h2 className="text-center mb-4" style={{
+                // fontFamily: 'fantasy',
+                // color: 'grey'
+            // }}>
+                // Cadastrar Usuário
+            // </h2>
+
+            // <form onSubmit={(e) => { e.preventDefault(); adicionaUsuario(); }} className="mb-4">
+                // <div className="mb-3">
+                    // <label className='teste'>Primeiro nome:</label>
+                    // <input type="text" ref={primeiroNomeInputRef} name="primeiroNome" />
+                // </div>
+                // <div className="mb-3">
+                    // <label className='teste'>Último nome:</label>
+                    // <input type="text" ref={ultimoNomeInputRef} name="ultimoNome" />
+                // </div>
+            //    <div className="mb-3">
+                    // <label className='teste'>Idade:</label>
+                    // <input type="number" ref={idadeInputRef} name="idade" />
+                // </div>
+                // <div className="mb-3">
+                //     <label className='teste'>Email:</label>
+                //     <input type="email" ref={emailInputRef} name="email" />
+                // </div>
+                // <div className="mb-3">
+                //     <label className='teste'>Senha:</label>
+                //     <input type="password" ref={senhaInputRef} name="senha" />
+                // </div>
+
+                // <div className="d-flex justify-content-between">
+                //     <button type="submit"  className="btn btn-primary">Cadastrar</button>
+                //     <button type="button" className="btn btn-primary" onClick={limparCampos}>Cancelar</button>
+                // </div>
+                {/* <button type="submit">{modoEdicao ? "Salvar" : "Cadastrar"}</button> */}
+                {/* {modoEdicao && <button type="button" onClick={limparCampos}>Cancelar</button>} */}
+            // </form>
+            // {/* 
+//             <div>
+//                 <h3>Lista de Usuários</h3>
+//                 {listaUsuarios.map(usuario => (
+//                     <div key={usuario.id} style={{ display: 'flex', alignItems: 'center', margin: '10px' }}>
+//                         <div style={{ flex: '1', marginRight: '10px', padding: '5px' }}>
+//                             {usuario.primeiro_nome} {usuario.ultimo_nome} - {usuario.idade} anos - {usuario.email}
+//                         </div>
+//                         //<button onClick={() => editarUsuario(usuario)}>Editar</button>
+//                         <button onClick={() => excluirUsuario(usuario.id)}>Excluir</button>
+//                     </div>
+//                 ))}
+//             </div> */}
+
+//             <div className="d-flex justify-content-end mt-4">
+
+//                 <Link to={'/login'}> <div>Login</div> </Link>
+//                 <Link to={'/'}>Voltar</Link>
+//                 <Outlet />
+//             </div>
+//         </div>
+//     );
+// };
 
 export default Cadastrar;

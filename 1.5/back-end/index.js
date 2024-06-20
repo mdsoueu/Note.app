@@ -2,14 +2,22 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 
-app.use(cors());
+const bodyParser = require('body-parser');
+const jwt = require('jsonwebtoken');
+
+app.use(bodyParser.json());
+app.use(cors({
+    origin: 'http://localhost:5173' // URL do frontend
+}));
 app.use(express.json());
 
 const tarefaRoutes = require('./controlador/controladorTarefa');
 const usuarioRoutes = require('./controlador/controladorUsuario');
+const loginRoutes = require('./controlador/controladorLogin');
 
-app.use(tarefaRoutes); // Define prefixo '/tarefa' para as rotas de tarefa
-app.use(usuarioRoutes); // Define prefixo '/usuario' para as rotas de usuário
+app.use(loginRoutes);
+app.use(tarefaRoutes); 
+app.use(usuarioRoutes);
 
 app.listen(4300, () => {
     console.log('Conectou.');

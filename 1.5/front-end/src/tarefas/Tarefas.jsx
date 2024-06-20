@@ -3,6 +3,7 @@ import { Pie } from "react-chartjs-2";
 import { Link, Outlet } from "react-router-dom";
 import { Chart, ArcElement, Tooltip, Legend } from "chart.js";
 import axios from "axios";
+import '../style/Style.css'
 
 Chart.register(ArcElement, Tooltip, Legend);
 
@@ -47,6 +48,7 @@ function Tarefas() {
         setIndiceEditado(indice);
         descricaoTarefaInputRef.current.value = descricao;
     }
+
     function excluirTarefa(id) {
         axios.delete(`http://localhost:4300/tarefa/${id}`)
             .then(() => {
@@ -86,39 +88,36 @@ function Tarefas() {
     };
 
     return (
-        <div style={{ paddingTop: '80px' }}>
-            <h2 style={{ fontFamily: 'fantasy', color: 'grey' }}>Cadastrar Tarefa:</h2>
-            <input type="text" ref={descricaoTarefaInputRef} />
-            <button onClick={adicionaTarefa}>{modoEdicao ? "Salvar" : "Cadastrar"}</button>
-            <br />
-            <div>
-                {listaTarefas.map((tarefaAtual, index) => (
-                    <div key={tarefaAtual.descricao} style={{ display: 'flex', alignItems: 'center', margin: '10px' }}>
-                        <div style={{
-                            flex: '1',
-                            color: 'white',
-                            backgroundColor: 'gray',
-                            textDecoration: pegaEstilo(tarefaAtual),
-                            marginRight: '10px', padding: '5px'
-                        }}
-                            onClick={() => atualizarTarefa(tarefaAtual)}>
-                            {tarefaAtual.descricao}
+        <div className="container">
+            <div className="containerDescricaoEGrafico">
+                <h2 className="tituloCadastrarTarefa">Cadastrar Tarefa</h2>
+
+                <div style={{ marginBottom: '20px' }}> {/* espa~ço entre a caixa de texto de inserir tarefas e a caixa que armazena as tarefas */}
+                    <input type="text" ref={descricaoTarefaInputRef} style={{ marginRight: '10px' }} />
+                    <button onClick={adicionaTarefa}>{modoEdicao ? "Salvar" : "Cadastrar"}</button>
+                </div>
+
+
+                <div className="containerDescricaoTarefas"> {/* tarefa que armazena as tarefas */}
+                    {listaTarefas.map((tarefaAtual, index) => (
+                        <div key={tarefaAtual.descricao} className="inputEBotaoDescricao">
+                            <div className="caixaDeTextoDescricao" style={{textDecoration: pegaEstilo(tarefaAtual)}} onClick={() => atualizarTarefa(tarefaAtual)}> {tarefaAtual.descricao} </div>
+                            <button onClick={() => editarTarefa(index, tarefaAtual.descricao)} style={{ marginRight: '5px' }}>Editar</button>
+                            <button onClick={() => excluirTarefa(tarefaAtual.id)}>Excluir</button>
                         </div>
-                        <button onClick={() => editarTarefa(index, tarefaAtual.descricao)}>Editar</button>
-                        <button onClick={() => excluirTarefa(tarefaAtual.id)}>Excluir</button>
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
 
             {/* GRAFICO */}
-            <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+            <div className="grafico">
                 <Pie data={data} />
             </div>
 
             {/* Link para voltar */}
-            <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
+            <div style={{ marginTop: '350px' }}>
                 <Link to={'/'}>
-                    <input type="button" value="Voltar" className="btn btn-danger" style={{ width: '100px', height: '40px' }} />
+                    <input type="button" value="Voltar" className="btn btn-danger" />
                 </Link>
             </div>
         </div>
