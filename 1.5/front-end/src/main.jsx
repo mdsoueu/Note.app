@@ -8,7 +8,6 @@ import Cadastrar from './telas/Cadastrar.jsx'
 import Tarefas from './tarefas/Tarefas.jsx'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
 const rota = createBrowserRouter([
   {
     path: '/',
@@ -37,6 +36,5 @@ const rota = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <RouterProvider router={rota} />
-    {/* <App /> */}
   </React.StrictMode>,
 )
