@@ -9,12 +9,12 @@ import { Container, Switch } from "../style/Style";
 import GlobalTheme from "../style/globals";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../style/Style.css'
+import '../Style.css'
 
 const Cabecalho = () => {
+    const [theme, setTheme] = useState("light");
     const location = useLocation();
     const navigate = useNavigate();
-    const [theme, setTheme] = useState("light");
 
     const toggleTheme = () => {
         if (theme === "light") {
