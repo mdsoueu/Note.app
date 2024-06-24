@@ -10,7 +10,7 @@ Chart.register(ArcElement, Tooltip, Legend);
 function Tarefas() {
     const [listaTarefas, setListarefas] = useState([]);
     const [modoEdicao, setModoEdicao] = useState(false);
-    const [descricaoEditada, setDescricaoEditada] = useState("");
+    const [descricaoEditada, setDescricaoEditada] = useState(null);
     const [indiceEditado, setIndiceEditado] = useState(null);
     const descricaoTarefaInputRef = useRef();
 
@@ -33,12 +33,10 @@ function Tarefas() {
             setIndiceEditado(null);
         } else {
             const novaTarefa = { descricao: descricaoTarefaInputRef.current.value };
-
             axios.post(`http://localhost:4300/tarefa`, novaTarefa)
                 .then(response => {
                     setListarefas([...listaTarefas, response.data]);
-                })
-                .catch((error) => console.log(error));
+                }).catch((error) => console.log(error));
         }
     };
 
@@ -87,21 +85,25 @@ function Tarefas() {
         ],
     };
 
+    function limparCampos() {
+        descricaoTarefaInputRef.current.value = '';
+    }
+
     return (
         <div className="container">
             <div className="containerDescricaoEGrafico">
                 <h2 className="tituloCadastrarTarefa">Cadastrar Tarefa</h2>
 
-                <div style={{ marginBottom: '20px' }}> {/* espa~ço entre a caixa de texto de inserir tarefas e a caixa que armazena as tarefas */}
+                <div style={{ marginBottom: '20px' }}> {/* espaço entre a caixa de texto de inserir tarefas e a caixa que armazena as tarefas */}
                     <input type="text" ref={descricaoTarefaInputRef} style={{ marginRight: '10px' }} />
-                    <button onClick={adicionaTarefa}>{modoEdicao ? "Salvar" : "Cadastrar"}</button>
+                    <button onClick={() => { adicionaTarefa(); limparCampos(); }}>{modoEdicao ? "Salvar" : "Cadastrar"}</button>
                 </div>
 
 
                 <div className="containerDescricaoTarefas"> {/* tarefa que armazena as tarefas */}
                     {listaTarefas.map((tarefaAtual, index) => (
                         <div key={tarefaAtual.descricao} className="inputEBotaoDescricao">
-                            <div className="caixaDeTextoDescricao" style={{textDecoration: pegaEstilo(tarefaAtual)}} onClick={() => atualizarTarefa(tarefaAtual)}> {tarefaAtual.descricao} </div>
+                            <div className="caixaDeTextoDescricao" style={{ textDecoration: pegaEstilo(tarefaAtual) }} onClick={() => atualizarTarefa(tarefaAtual)}> {tarefaAtual.descricao} </div>
                             <button onClick={() => editarTarefa(index, tarefaAtual.descricao)} style={{ marginRight: '5px' }}>Editar</button>
                             <button onClick={() => excluirTarefa(tarefaAtual.id)}>Excluir</button>
                         </div>
