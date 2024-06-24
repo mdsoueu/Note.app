@@ -3,7 +3,7 @@ import { Pie } from "react-chartjs-2";
 import { Link, Outlet } from "react-router-dom";
 import { Chart, ArcElement, Tooltip, Legend } from "chart.js";
 import axios from "axios";
-import '../style/Style.css'
+import '../Style.css'
 
 Chart.register(ArcElement, Tooltip, Legend);
 
@@ -118,9 +118,11 @@ function Tarefas() {
 
             {/* Link para voltar */}
             <div style={{ marginTop: '350px' }}>
-                <Link to={'/'}>
-                    <input type="button" value="Voltar" className="btn btn-danger" />
-                </Link>
+                <button className="btn btn-danger" style={{ margin: '0 10px', cursor: 'pointer' }}>
+                    <Link to={'/'} style={{ color: "black", textDecoration: 'none' }} className="mx-2">
+                        <i class="bi bi-house"></i>
+                    </Link>
+                </button>
             </div>
         </div>
     );

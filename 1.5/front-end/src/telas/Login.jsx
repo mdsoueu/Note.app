@@ -5,15 +5,15 @@ import axios from 'axios';
 
 const Login = () => {
     const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [senha, setPassword] = useState('');
     const navigate = useNavigate();
 
     const handleLogin = async (event) => {
         event.preventDefault();
         try {
-            console.log("Login attempt with", { email, password });
+            console.log("Login attempt with", { email, senha });
             const response = await axios.post('http://localhost:4300/login', {
-                email, password,
+                email, senha,
             });
 
             if (response.status === 200) {
@@ -24,11 +24,10 @@ const Login = () => {
             console.error('Login failed', error);
         }
     };
-   
+
     return (
-        // <div className="container mt-5">
-        <div style={{display: 'block'}}>
-            <h2 style={{ padding: '0 60px', fontFamily: 'fantasy', color: 'red'}}>Login</h2>
+        <div style={{ display: 'block' }}>
+            <h2 style={{ padding: '0 60px', fontFamily: 'fantasy', color: 'red' }}>Login</h2>
 
             <form onSubmit={handleLogin} className="mb-4">
                 <div className="mb-3">
@@ -38,26 +37,23 @@ const Login = () => {
 
                 <div className="mb-3">
                     <label className="form-label">Senha:</label>
-                    <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="form-control" />
+                    <input type="password" value={senha} onChange={(e) => setPassword(e.target.value)} className="form-control" />
                 </div>
 
-                <button type="submit">Login</button>
-
-                <div className="d-flex justify-content-between">
-                    <Link to={'/tarefas'}>
-                        <input type="button" value="enviar" className="btn btn-primary" />
-                    </Link>
-                </div> 
+                    <button className="btn btn-primary" type="submit">Login</button>
             </form>
 
-            {/* <div className="d-flex justify-content-end mb-4"> */}
-            <div style={{padding: "0 15px"}}>
-                <Link to={'/cadastrar'} className="mx-2">
-                    <input type="button" value="cadastrar" className="btn btn-secondary"/>
-                </Link>
-                <Link to={'/'}>
-                    <input type="button" value="voltar" className="btn btn-danger"/>
-                </Link>
+            <div style={{ padding: "0 15px" }}>
+                <button className="btn btn-primary" style={{ margin: '0 10px', cursor: 'pointer' }}>
+                    <Link to="/cadastrar" style={{ color: "black", textDecoration: 'none' }} className="mx-2">
+                        <i className="bi bi-person-add"> Cadastrar</i>
+                    </Link>
+                </button>
+                <button className="btn btn-danger" style={{ margin: '0 10px', cursor: 'pointer' }}>
+                    <Link to={'/'} style={{ color: "black", textDecoration: 'none' }} className="mx-2">
+                        <i className="bi bi-house"></i>
+                    </Link>
+                </button>
             </div>
 
             <Outlet />

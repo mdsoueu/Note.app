@@ -1,6 +1,7 @@
-import React, { useRef, useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Link, Outlet } from "react-router-dom";
+import axios from 'axios';
 
 const Cadastrar = () => {
     const [listaUsuarios, setListaUsuarios] = useState([]);
@@ -9,6 +10,8 @@ const Cadastrar = () => {
     const idadeInputRef = useRef();
     const emailInputRef = useRef();
     const senhaInputRef = useRef();
+
+    const navigate = useNavigate();
 
     function adicionaUsuario() {
         const usuario = {
@@ -29,6 +32,7 @@ const Cadastrar = () => {
                 .then(response => {
                     setListaUsuarios([...listaUsuarios, response.data]);
                     limparCampos();
+                    navigate('/login');
                 })
         } catch (error) {
             console.error('Erro ao adicionar usuário:', error);
@@ -64,19 +68,23 @@ const Cadastrar = () => {
                 <input type="password" ref={senhaInputRef} name="senha" className="form-control" />
                 <br />
 
-                <div className="d-flex justify-content-center mb-2" style={{ gap: '10px' }}>
-                    <button type="submit" className="btn btn-primary">Cadastrar</button>
+                <div className="d-flex justify-content-start mb-2" style={{ gap: '10px' }}>
+                    <button className="btn btn-primary" type="submit">Login</button>
                     <button type="button" className="btn btn-primary" onClick={limparCampos}>Cancelar</button>
                 </div>
             </form>
-        
+
             <div className="d-flex justify-content-end mt-2">
-                <Link to={'/login'} className="mx-2">
-                    <input type="button" value="login" className="btn btn-secondary" />
-                </Link>
-                <Link to={'/'} className="mx-2">
-                    <input type="button" value="voltar" className="btn btn-danger" />
-                </Link>
+                <button className="btn btn-secondary" style={{ margin: '0 10px', cursor: 'pointer' }}>
+                    <Link to={'/login'} style={{ color: "black", textDecoration: 'none' }} className="mx-2">
+                        <i className="bi bi-person-circle"> Login</i>
+                    </Link>
+                </button>
+                <button className="btn btn-danger" style={{ margin: '0 10px', cursor: 'pointer' }}>
+                    <Link to={'/'} style={{ color: "black", textDecoration: 'none' }} className="mx-2">
+                        <i className="bi bi-house"></i>
+                    </Link>
+                </button>
                 <Outlet />
             </div>
         </div>
