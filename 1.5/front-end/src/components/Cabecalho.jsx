@@ -16,22 +16,6 @@ const Cabecalho = () => {
     const navigate = useNavigate();
     const [theme, setTheme] = useState("light");
 
-    // useEffect(() => {
-    //     fetch('http://localhost:4300/usuarios', {
-    //         method: 'GET'
-    //     }).then(a => a.json())
-    //         .then((a) => console.log(a))
-    //         .catch((a) => console.log(a));
-
-    //     fetch('http://localhost:4300/usuarios', {
-    //         method: 'POST',
-    //         headers: { "Content-type": 'application/json' },
-    //         body: JSON.stringify({ descricao: 'teste' })
-    //     }).then(a => a.json())
-    //         .then((a) => console.log(a))
-    //         .catch((a) => console.log(a));
-    // }, []);
-
     const toggleTheme = () => {
         if (theme === "light") {
             localStorage.setItem("theme", "dark");
