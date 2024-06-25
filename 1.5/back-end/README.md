@@ -3,26 +3,26 @@ Este é o projeto de back-end que gerencia as funcionalidades do sistema, organi
 
 ## Estrutura do Projeto
 A estrutura de pastas do projeto é a seguinte:
-    back-end/
-    ├── controlador/
-    │ ├── controladorLogin.js
-    │ ├── controladorTarefa.js
-    │ └── controladorUsuario.js
-    ├── tabelas/
-    │ ├── tarefa.js
-    │ └── usuario.js
-    ├── conexao.js
-    ├── index.js
-    └── README.md
+    back-end/ <br>
+    ├── controlador/ <br>
+    │ ├── controladorLogin.js <br>
+    │ ├── controladorTarefa.js <br>
+    │ └── controladorUsuario.js <br>
+    ├── tabelas/ <br>
+    │ ├── tarefa.js <br>
+    │ └── usuario.js <br>
+    ├── conexao.js <br>
+    ├── index.js <br>
+    └── README.md <br>
 
 ## Instalação
 Clone o repositório:
- git clone https://github.com/mdsoueu/Note.app.git
- cd back-end
- npm install sequelize mysql2 express jsonwebtoken
- node index.js
+ git clone https://github.com/mdsoueu/Note.app.git <br>
+ cd back-end <br>
+ npm install sequelize mysql2 express jsonwebtoken <br>
+ node index.js <br>
 
  ## Contribuidores
-• Jonathan
-• Maria Eduarda
-• Nickolas
+• Jonathan <br>
+• Maria Eduarda <br>
+• Nickolas <br>
