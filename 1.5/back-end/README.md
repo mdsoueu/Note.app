@@ -22,6 +22,9 @@ Clone o repositório: <br>
  npm install sequelize mysql2 express jsonwebtoken <br>
  node index.js <br>
 
+Para rodar o sistemas use o link abaixo:
+ http://localhost:5173/
+
  ## Contribuidores
 • Jonathan <br>
 • Maria Eduarda <br>

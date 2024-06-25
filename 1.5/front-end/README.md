@@ -32,6 +32,9 @@ Clone o repositório: <br>
  npm install axios react-router-dom bootstrap <br>
  npm run dev <br>
 
+Para rodar o sistemas use o link abaixo:
+ http://localhost:5173/
+
  ## Contribuidores
 • Jonathan  <br>
 • Maria Eduarda  <br>
