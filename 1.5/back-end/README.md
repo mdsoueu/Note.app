@@ -2,7 +2,7 @@
 Este é o projeto de back-end que gerencia as funcionalidades do sistema, organizadas em controladores e tabelas no banco de dados.
 
 ## Estrutura do Projeto
-A estrutura de pastas do projeto é a seguinte:
+A estrutura de pastas do projeto é a seguinte: <br>
     back-end/ <br>
     ├── controlador/ <br>
     │ ├── controladorLogin.js <br>
@@ -16,7 +16,7 @@ A estrutura de pastas do projeto é a seguinte:
     └── README.md <br>
 
 ## Instalação
-Clone o repositório:
+Clone o repositório: <br>
  git clone https://github.com/mdsoueu/Note.app.git <br>
  cd back-end <br>
  npm install sequelize mysql2 express jsonwebtoken <br>
