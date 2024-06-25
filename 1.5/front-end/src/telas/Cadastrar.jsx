@@ -69,7 +69,7 @@ const Cadastrar = () => {
                 <br />
 
                 <div className="d-flex justify-content-start mb-2" style={{ gap: '10px' }}>
-                    <button className="btn btn-primary" type="submit">Login</button>
+                    <button className="btn btn-primary" type="submit">Cadastrar</button>
                     <button type="button" className="btn btn-primary" onClick={limparCampos}>Cancelar</button>
                 </div>
             </form>

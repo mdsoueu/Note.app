@@ -7,7 +7,7 @@ const Login = () => {
     const [email, setEmail] = useState('');
     const [senha, setPassword] = useState('');
     const navigate = useNavigate();
-
+    
     const handleLogin = async (event) => {
         event.preventDefault();
         try {
@@ -25,6 +25,7 @@ const Login = () => {
         }
     };
 
+    
     return (
         <div style={{ display: 'block' }}>
             <h2 style={{ padding: '0 60px', fontFamily: 'fantasy', color: 'red' }}>Login</h2>
@@ -32,7 +33,7 @@ const Login = () => {
             <form onSubmit={handleLogin} className="mb-4">
                 <div className="mb-3">
                     <label className="form-label">Email:</label>
-                    <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="form-control" />
+                    <input type="email" value={email} onChange={(e) => setEmail(e.target.ref)} className="form-control" />
                 </div>
 
                 <div className="mb-3">
@@ -40,7 +41,7 @@ const Login = () => {
                     <input type="password" value={senha} onChange={(e) => setPassword(e.target.value)} className="form-control" />
                 </div>
 
-                    <button className="btn btn-primary" type="submit">Login</button>
+                <button className="btn btn-primary" type="submit">Login</button>
             </form>
 
             <div style={{ padding: "0 15px" }}>
