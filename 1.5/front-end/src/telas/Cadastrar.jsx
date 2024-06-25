@@ -23,19 +23,20 @@ const Cadastrar = () => {
         };
 
         if (!usuario.primeiro_nome || !usuario.ultimo_nome || !usuario.idade || !usuario.email || !usuario.senha) {
-            console.error('Todos os campos são obrigatórios.');
+            alert('Todos os campos são obrigatórios.');
             return;
         }
 
         try {
             axios.post('http://localhost:4300/usuarios', usuario)
                 .then(response => {
-                    setListaUsuarios([...listaUsuarios, response.data]);
                     limparCampos();
+                    setListaUsuarios([...listaUsuarios, response.data]);
+                    // alert('Cadastro bem-sucedido!');
                     navigate('/login');
                 })
         } catch (error) {
-            console.error('Erro ao adicionar usuário:', error);
+            alert('Erro ao cadastrar', error);
         }
     }
 
@@ -67,9 +68,9 @@ const Cadastrar = () => {
                 <label className="form-label" >Senha:</label>
                 <input type="password" ref={senhaInputRef} name="senha" className="form-control" />
                 <br />
-                    <button type="submit">Cadastrar</button>
 
                 <div className="d-flex justify-content-start mb-2" style={{ gap: '10px' }}>
+                    <button type="submit" className="btn btn-primary">Cadastrar</button>
                     <button type="button" className="btn btn-primary" onClick={limparCampos}>Cancelar</button>
                 </div>
             </form>

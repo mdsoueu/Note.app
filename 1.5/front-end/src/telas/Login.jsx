@@ -10,20 +10,20 @@ const Login = () => {
     const handleLogin = async (event) => {
         event.preventDefault();
         try {
-            console.log("Tentativa de login com", { email, senha });
+            // console.log("Tentativa de login com", { email, senha });
             const response = await axios.post('http://localhost:4300/login', {
                 email, senha,
             });
 
             if (response.status === 200) {
-                console.log('Login bem-sucedido');
+                // alert('Login bem-sucedido!');
                 navigate('/tarefas');
             }
         } catch (error) {
-            console.error('Login falhou', error);
+            alert('Credenciais inválidas', error);
         }
     };
-   
+
     return (
         <div style={{ display: 'block' }}>
             <h2 style={{ padding: '0 60px', fontFamily: 'fantasy', color: 'red' }}>Login</h2>
@@ -43,12 +43,16 @@ const Login = () => {
             </form>
 
             <div style={{ padding: "0 15px" }}>
-                <Link to={'/cadastrar'} className="mx-2">
-                    <input type="button" value="cadastrar" className="btn btn-secondary" />
-                </Link>
-                <Link to={'/'}>
-                    <input type="button" value="voltar" className="btn btn-danger" />
-                </Link>
+                <button className="btn btn-primary" style={{ margin: '0 10px', cursor: 'pointer' }}>
+                    <Link to="/cadastrar" style={{ color: "black", textDecoration: 'none' }} className="mx-2">
+                        <i className="bi bi-person-add"> Cadastrar</i>
+                    </Link>
+                </button>
+                <button className="btn btn-danger" style={{ margin: '0 10px', cursor: 'pointer' }}>
+                    <Link to={'/'} style={{ color: "black", textDecoration: 'none' }} className="mx-2">
+                        <i className="bi bi-house"></i>
+                    </Link>
+                </button>
             </div>
 
             <Outlet />
