@@ -120,7 +120,7 @@ function Tarefas() {
             <div style={{ marginTop: '350px' }}>
                 <button className="btn btn-danger" style={{ margin: '0 10px', cursor: 'pointer' }}>
                     <Link to={'/'} style={{ color: "black", textDecoration: 'none' }} className="mx-2">
-                        <i class="bi bi-house"></i>
+                        <i className="bi bi-house"></i>
                     </Link>
                 </button>
             </div>

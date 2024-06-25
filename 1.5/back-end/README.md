@@ -1,10 +1,28 @@
-# BACK-END
+# Projeto Back-End
+Este é o projeto de back-end que gerencia as funcionalidades do sistema, organizadas em controladores e tabelas no banco de dados.
 
-* Instalar dependencias:
-npm install sequelize mysql2 express jsonwebtoken
+## Estrutura do Projeto
+A estrutura de pastas do projeto é a seguinte:
+    back-end/
+    ├── controlador/
+    │ ├── controladorLogin.js
+    │ ├── controladorTarefa.js
+    │ └── controladorUsuario.js
+    ├── tabelas/
+    │ ├── tarefa.js
+    │ └── usuario.js
+    ├── conexao.js
+    ├── index.js
+    └── README.md
 
-* Para star:
-node index.js
+## Instalação
+Clone o repositório:
+ git clone https://github.com/mdsoueu/Note.app.git
+ cd back-end
+ npm install sequelize mysql2 express jsonwebtoken
+ node index.js
 
-* Para mostrar tabela no MySQL:
-SELECT*FROM
+ ## Contribuidores
+• Jonathan
+• Maria Eduarda
+• Nickolas

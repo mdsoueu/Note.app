@@ -37,7 +37,7 @@ const Cabecalho = () => {
             <GlobalTheme />
                 <div className="d-flex justify-content-end align-items-center my-3">
                     <Switch onClick={toggleTheme} className="btn btn-outline-secondary">
-                        {theme === "dark" ? "Modo dark" : "Modo Light"}
+                        {theme === "dark" ? "Dark" : "Light"}
                     </Switch>
                 </div>
                 {location.pathname !== '/inicio' && location.pathname !== '/login' && location.pathname !== '/cadastrar' && location.pathname !== '/tarefas' && (

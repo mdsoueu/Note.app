@@ -15,41 +15,49 @@
 /* CSS do arquivo Tarefa.jsx */
 .container {
     display: flex;
-    padding: 20px;
-    max-width: 1200px;
+    padding: 10px;
+    max-width: 1500px;
     margin: 0 auto;
 }
+
 .containerDescricaoEGrafico {
     flex: 1;
-    padding: 10px;
+    padding: 5px;
 }
+
 .tituloCadastrarTarefa {
     font-family: fantasy;
     color: red;
     text-align: center;
+    font-size: 1.5rem;
 }
+
 .containerDescricaoTarefas {
-    max-height: 300px;
+    max-height: 200px;
     overflow-y: scroll;
     border: 1px solid #ccc;
-    padding: 10px;
+    padding: 5px;
     width: 100%;
 }
+
 .inputEBotaoDescricao {
     display: flex;
     align-items: center;
-    margin: 10px 0;
+    margin: 5px 0;
 }
+
 .caixaDeTextoDescricao {
     flex: 1;
     color: white;
     background-color: gray;
-    margin-right: 10px;
-    padding: 5px;
+    margin-right: 5px;
+    padding: 3px;
+    font-size: 0.9rem;
 }
+
 .grafico {
     flex: 1;
-    padding: 10px;
+    padding: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -59,7 +67,34 @@
 .containerCadastrar {
     display: block;
 }
+
 .labelEInput {
     display: block;
     padding-left: 35px;
 }
+
+/* @media screen and (max-width: 768px) { */
+    /* Cabeçalho */
+    /* .tituloCabecalho {
+        font-size: 80px;
+    } */
+
+    /* Cadastrar */
+    /* .containerCadastrar {
+        padding-bottom: 5px;
+    } */
+
+    /* Tarefa.jsx */
+    /* .container {
+        padding: 5px;
+        margin: 5px;
+    } */
+
+    /* .containerDescricaoTarefas {
+        max-height: 80px;
+    } */
+
+    /* .tituloCadastrarTarefa {
+        font-size: 1.5rem;
+    }
+}  */
