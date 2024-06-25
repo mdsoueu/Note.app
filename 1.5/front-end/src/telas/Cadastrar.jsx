@@ -67,9 +67,9 @@ const Cadastrar = () => {
                 <label className="form-label" >Senha:</label>
                 <input type="password" ref={senhaInputRef} name="senha" className="form-control" />
                 <br />
+                    <button type="submit">Cadastrar</button>
 
                 <div className="d-flex justify-content-start mb-2" style={{ gap: '10px' }}>
-                    <button className="btn btn-primary" type="submit">Cadastrar</button>
                     <button type="button" className="btn btn-primary" onClick={limparCampos}>Cancelar</button>
                 </div>
             </form>
