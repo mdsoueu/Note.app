@@ -2,7 +2,7 @@
 Este é o projeto de front-end que inclui diversas funcionalidades organizadas em componentes, estilos e telas.
 
 ## Estrutura do Projeto
-A estrutura de pastas do projeto é a seguinte:
+A estrutura de pastas do projeto é a seguinte: <br>
     front-end/ <br>
     ├── src/ <br>
     │ ├── components/ <br>
